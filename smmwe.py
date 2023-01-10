@@ -19,7 +19,8 @@ def level_string_to_dict(level_string: str) -> dict:
     '''
     Load SMM:WE level's data section and return a dictionary.
     '''
-    return json.loads(b64decode(level_string[:-40].encode()).decode())
+    offset: int = 41 if level_string[-1] == '\x00' else 40
+    return json.loads(b64decode(level_string[:-offset].encode()).decode())
 
 
 def dict_to_level_string(level_dict: dict) -> str:
