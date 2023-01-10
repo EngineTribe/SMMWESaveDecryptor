@@ -13,6 +13,7 @@ output_json_handle.write(
     json.dumps(
         level_string_to_dict(
             swe_handle.read()
-            )
+            ),
+        indent=2
         )
     )
